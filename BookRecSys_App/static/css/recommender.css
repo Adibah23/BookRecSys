@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css?family=Sriracha');
+
+body{
+    overflow-x: hidden;
+}
+
+html{
+    margin-bottom: 50px;
+}
+
+.book-slide {
+    margin-top: 70px;
+    width: 100%;
+    margin-left: 20px;
+
+}
+
+.wrapper {
+    height: 350px;
+    width: 550px;
+    margin-top: 50px;
+    margin-left: 50px;
+
+    border-radius: 9px 9px 9px 9px;
+    -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+
+    position: relative;
+    float: left;
+    display: flex;
+}
+
+img {
+    width: 100%;
+    height: 100%
+}
+
+.product-img {
+    float: left;
+    height: 100%;
+    width: 50%;
+}
+
+.product-img img {
+    border-radius: 9px 0 0 9px;
+}
+
+.product-info {
+    float: left;
+    height: 100%;
+    width: 50%;
+    border-radius: 0 7px 10px 0px;
+
+}
+
+.wrapper:nth-child(5n+1) {
+    background: #EECDA3; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #bf0b55, #f3d2b5); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #bf0b55, #f3d2b5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.wrapper:nth-child(5n+2) {
+    background: #1F1C2C; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #c2b9fc, #212030); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #c2b9fc, #212030); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.wrapper:nth-child(5n+3) {
+    background: #5433FF; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #A5FECB, #20BDFF, #5433FF); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #A5FECB, #20BDFF, #5433FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.wrapper:nth-child(5n+4) {
+    background: #AAFFA9; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #21a07b, #c5fdc5); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #21a07b, #c5fdc5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.wrapper:nth-child(5n+5) {
+    background: #12c2e9; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #f64f59, #c471ed, #12c2e9); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.wrapper:nth-child(5n+6) {
+    background: #43C6AC; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #191654, #43C6AC); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #191654, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.product-text {
+    height: 300px;
+    width: 95%;
+    overflow: hidden;
+}
+
+.product-text h1 {
+    margin: -20px 0 0 38px;
+    padding-top: 52px;
+    color: #ffffff;
+    line-height: 1.3;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.product-text h1:hover{
+    overflow: visible;
+    white-space: normal;
+}
+
+.product-text h1,
+.product-price-btn p {
+     font-family: Sriracha, cursive;
+}
+
+.product-text h2 {
+    margin: 0 0 30px 38px;
+    font-size: 13px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #f8e9e9;
+    letter-spacing: 0.2em;
+    cursor: default;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.product-text h2:hover{
+    overflow: visible;
+    white-space: normal;
+}
+
+.product-text li {
+    margin: 0 0 0 37px;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #ffffff;
+    line-height: 2.9em;
+    font-size: 15px;
+    font-weight: lighter;
+    overflow: hidden;
+    text-transform: capitalize;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.product-text li:hover{
+    overflow: visible;
+    white-space: normal;
+}
+
+
+.product-price-btn {
+    margin-top: -1px;
+    margin-bottom: -80px;
+}
+
+.product-price-btn button {
+    width: 82%;
+    padding: 10px;
+
+    margin-right: 0px;
+    margin-left: 29px;
+    margin-bottom: 0px;
+    box-sizing: border-box;
+    border: transparent;
+    border-radius: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #000000;
+    background-color: #ffffff;
+    cursor: pointer;
+    outline: none;
+}
+
+.product-price-btn button:hover {
+    background-color: #fcefe4;
+}
+

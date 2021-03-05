@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+{% include "BookRecSys_App/navbar.html" with active_tab='C' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BookRecSys</title>
+    <link rel="stylesheet" href="{% static "css/bookdb.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+{% include 'BookRecSys_App/msg_alert.html' %}
+
+<section class="container">
+
+    <div class="search-wrapper">
+        <div class="input-holder">
+            <form method="post">
+                <input type="text" class="search-input" placeholder="Enter Title / Author / ISBN" id="keyword"
+                       name="keyword">
+                <button class="search-icon"><span></span></button>
+                {% csrf_token %}
+            </form>
+        </div>
+    </div>
+    >
+</section>
+
+<section>
+
+    <div class="book-slide">
+        <div class="main-wrapper">
+            {% for book in post_list %}
+                <div class="book-cell">
+                    <div class="book-img">
+                        <img src={{ book.image_url }} alt="" class="book-photo">
+                    </div>
+                    <div class="book-content">
+                        <div class="book-title">{{ book.title }}</div>
+                        <div class="book-author">by {{ book.author }}</div>
+                        <div class="rate">
+                            <span class="book-voters">other {{ book.rating_count }} people rated this book</span>
+                        </div>
+                        <div class="book-sum">
+                            <li>ISBN: {{ book.isbn }}</li>
+                            <li>Publisher: {{ book.publisher }}</li>
+                            <li>Year: {{ book.year }}</li>
+                        </div>
+                        <section>
+                            <form method="GET" id="favbookform">
+                                <a class="book-see"
+                                   href="?page={{ page }}&title={{ book.title|urlencode }}&user={{ request.session.userid }}&type=fav"
+                                   onclick="document.forms['favbookform'].submit();">Add To Favorite</a>
+                            </form>
+                        </section>
+                        <section class="sec">
+                            <form method="GET" id="disbookform">
+                                <a class="book-see-dislike"
+                                   href="?page={{ page }}&title={{ book.title|urlencode }}&user={{ request.session.userid }}&type=dislike"
+                                   onclick="document.forms['disbookform'].submit();">Add To Dislike</a>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<div class="divlink">
+    {% if post_list.has_other_pages %}
+        {% if post_list.has_previous %}
+            <a href="?page={{ post_list.previous_page_number }}" class="link_a">&laquo; PREV </a>
+            <p>{{ post_list.title }}</p>
+        {% endif %}
+        {% if post_list.has_next %}
+            <a href="?page={{ post_list.next_page_number }}" class="link_a"> NEXT &raquo;</a>
+        {% endif %}
+    {% endif %}
+</div>
+
+<script src="{% static "js/bookdb.js" %}"></script>
+</body>
+</html>

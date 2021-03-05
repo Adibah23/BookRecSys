@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+{% include "BookRecSys_App/navbar.html" with active_tab='C' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BookRecSys</title>
+    <link rel="stylesheet" href="{% static "css/bookdb.css" %}">
+</head>
+<body>
+{% include 'BookRecSys_App/msg_alert.html' %}
+<section class="container">
+
+    <div class="search-wrapper">
+        <div>
+            <form method="get">
+                <input type="text" id="keyword" name="keyword" class="search-input"
+                       placeholder="Enter Title / Author / ISBN" value="{{ key }}"/>
+                <button class="search-icon"><span></span></button>
+            </form>
+        </div>
+        <div class="result-container">
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="book-slide">
+        <div class="main-wrapper">
+            {% for book in item %}
+                <div class="book-cell">
+                    <div class="book-img">
+                        <img src={{ book.image_url }} alt="" class="book-photo">
+                    </div>
+                    <div class="book-content">
+                        <div class="book-title">{{ book.title }}</div>
+                        <div class="book-author">by {{ book.author }}</div>
+                        <div class="rate">
+                            <span class="book-voters">other {{ book.rating_count }} people rated this book</span>
+                        </div>
+                        <div class="book-sum">
+                            <li>ISBN: {{ book.isbn }}</li>
+                            <li>Publisher: {{ book.publisher }}</li>
+                            <li>Year: {{ book.year }}</li>
+                        </div>
+                        <section>
+                            <form method="GET" id="favbookform">
+                                <a class="book-see"
+                                   href="?page={{ page }}&title={{ book.title|urlencode }}&user={{ request.session.userid }}&type=fav"
+                                   onclick="document.forms['favbookform'].submit();">Add To Favorite</a>
+                            </form>
+                        </section>
+                        <section class="sec">
+                            <form method="GET" id="disbookform">
+                                <a class="book-see-dislike"
+                                   href="?page={{ page }}&title={{ book.title|urlencode }}&user={{ request.session.userid }}&type=dislike"
+                                   onclick="document.forms['disbookform'].submit();">Add To Dislike</a>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<script src="{% static "js/bookdb.js" %}"></script>
+</body>
+</html>

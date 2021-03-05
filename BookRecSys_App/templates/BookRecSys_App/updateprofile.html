@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+{% include "BookRecSys_App/navbar.html" with active_tab='B' %}
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookRecSys</title>
+    <link rel="stylesheet" href="{% static "css/profile.css" %}">
+</head>
+<body>
+{% include 'BookRecSys_App/msg_alert.html' %}
+
+<div class="vcard">
+    <div class="header">
+        <div class="wave_bg">
+            <div class="wave-01"></div>
+            <div class="wave-02"></div>
+            <div class="wave-03"></div>
+        </div>
+
+        <div class="profile_pic_content">
+            <img class="profile_pic" src={% static "image/profile.jpg" %}>
+        </div>
+    </div>
+    <div class="card_content">
+
+        <form method="post" action="">
+            {% csrf_token %}
+
+            <input type="text" placeholder="Name" value="{{ name }}" id="name" name="name">
+
+            <input type="text" placeholder="Email" value="{{ email }}" id="email" name="email">
+
+            <input type="password" placeholder="Password" value="{{ password }}" id="password" name="password">
+
+            <button class="button2">Submit</button>
+        </form>
+    </div>
+</div>
+
+<canvas id="canvas-club"></canvas>
+<script src="{% static "js/profile.js" %}"></script>
+</body>
+</html>

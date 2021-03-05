@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+{% include "BookRecSys_App/navbar.html" with active_tab='D' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BookRecSys</title>
+    <link rel="stylesheet" href="{% static "css/recommender.css" %}">
+</head>
+<body>
+
+{% include 'BookRecSys_App/msg_alert.html' %}
+
+<div class="book-slide">
+    {% for book in rec %}
+        <div class="wrapper">
+            <div class="product-img">
+                <img src="{{ book.image_url }}">
+            </div>
+            <div class="product-info">
+                <div class="product-text">
+                    <h1>{{ book.title }}</h1>
+                    <h2>BY {{ book.author }}</h2>
+                    <li>ISBN: {{ book.isbn }}</li>
+                    <li>Publisher: {{ book.publisher }}</li>
+                    <li>Year: {{ book.year }}</li>
+                    <li>Rating Count: {{ book.rating_count }}</li>
+                </div>
+                <form method="get" id="favbookform">
+                    <div class="product-price-btn">
+                        <input type="hidden" name="title" id="title" value="{{ book.title }}">
+                        <input type="hidden" name="user" id="user" value={{ request.session.userid }}>
+                        <input type="hidden" name="type" id="type" value="fav">
+                    </div>
+                </form>
+
+                <form method="get">
+                    <div class="product-price-btn">
+                        <input type="hidden" name="title" id="title" value="{{ book.title }}">
+                        <input type="hidden" name="user" id="user" value={{ request.session.userid }}>
+                        <input type="hidden" name="type" id="type" value="dislike">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

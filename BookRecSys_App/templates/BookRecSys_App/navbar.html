@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static "css/navbar.css" %}">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="container">
+        <h1 class="logo"><a href="homepage.html">BookRecSys</a></h1>
+        <ul>
+            <li><a href="homepage.html" class="{% if active_tab == 'A' %}current{% endif %}">Home</a></li>
+            <li><a href="profile.html" class="{% if active_tab == 'B' %}current{% endif %}">Profile</a></li>
+            <li><a href="bookdb.html" class="{% if active_tab == 'C' %}current{% endif %}">Books</a></li>
+            <li><a href="recommender.html" class="{% if active_tab == 'D' %}current{% endif %}">Recommendation</a></li>
+            <li><a href="myshelf.html" class="{% if active_tab == 'F' %}current{% endif %}">MyShelf</a></li>
+            <li><a href={% url 'logout' %} class="{% if active_tab == 'E' %}current{% endif %}">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script src="{% static "js/navbar.js" %}"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+{% include "BookRecSys_App/navbar.html" with active_tab='A' %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+    <title>BookRecSys</title>
+    <link rel="stylesheet" href="{% static "css/homepage.css" %}">
+</head>
+<body style="background:black;">
+
+{% include 'BookRecSys_App/msg_alert.html' %}
+
+<div class="hero">
+    <div class="container">
+        <h1 class="glow">Welcome To BookRecSys, {{ name }}</h1>
+        <p class="glow"><br><i>
+            "If you don't like to read, you haven't found the right book." -J.K Rowling</i>
+        </p>
+        <p class="glow">project by, adibah nordin</p>
+
+    </div>
+</div>
+
+
+</body>
+</html>

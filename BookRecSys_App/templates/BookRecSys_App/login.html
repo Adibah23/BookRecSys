@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BookRecSys</title>
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+    <link rel="stylesheet" href="{% static "css/wave_animation.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+{% include 'BookRecSys_App/msg_alert.html' %}
+
+<div class="waveWrapper waveAnimation">
+    <div class="waveWrapperInner bgTop">
+        <div class="wave waveTop"
+             style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+    </div>
+    <div class="waveWrapperInner bgMiddle">
+        <div class="wave waveMiddle"
+             style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+    </div>
+    <div class="waveWrapperInner bgBottom">
+        <div class="wave waveBottom"
+             style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="overlay" id="overlay">
+        <div class="sign-in" id="sign-in">
+            <h1>Welcome Back!</h1>
+            <p>To keep connected with us please login with your personal info</p>
+            <button class="switch-button" id="slide-right-button">Sign In</button>
+        </div>
+        <div class="sign-up" id="sign-up">
+            <h1>Hello, Friend!</h1>
+            <p>Enter your personal details and start a journey with us</p>
+            <button class="switch-button" id="slide-left-button">Sign Up</button>
+        </div>
+    </div>
+    <div class="form">
+        <div class="sign-in" id="sign-in-info">
+            <h1>LOGIN ACCOUNT</h1>
+
+            <p class="small">please fill in your details</p>
+            <form autocomplete="off" id="sign-in-form" method="POST">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" id="logPass" name="password" placeholder="Password" required>
+                <button type="button" id="logBtn" class="toggle" onclick="login(); this.onclick=null;"><i id="logEye" class="fa fa-eye"></i></button>
+                <input type="hidden" id="hidelogin" name="hidelogin" value="sign-in-form">
+                <button class="control-button in">Submit</button>
+                {% csrf_token %}
+            </form>
+        </div>
+        <div class="sign-up" id="sign-up-info">
+            <h1>CREATE ACCOUNT</h1>
+
+            <p autocomplete="off" class="small">please fill in your details</p>
+            <form id="sign-up-form" method="POST" autocomplete="off">
+                <input type="text" id="name" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email"required>
+                <input type="password" id="regPass" name="password" placeholder="Password" required>
+                <button type="button" id="regBtn" class="toggle" onclick="registershow(); this.onclick=null;"><i id="regEye" class="fa fa-eye" ></i></button>
+                <input type="hidden" id="hideregister" name="hideregister" value="sign-up-form">
+                <button class="control-button in">Submit</button>
+                {% csrf_token %}
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="{% static "js/userlogin.js" %}"></script>
+<script src="{% static "js/showpass.js" %}"></script>
+</body>
+</html>
